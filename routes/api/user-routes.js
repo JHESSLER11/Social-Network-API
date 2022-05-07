@@ -7,3 +7,5 @@ const {
 router
     .route('/')
     .get(getAllUsers);
+
+module.exports = router;
