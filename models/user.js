@@ -16,7 +16,7 @@ const userSchema = new Schema(
             trim: true,
             match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
         },
-        thought: [
+        thoughts: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Thought'
@@ -32,6 +32,7 @@ const userSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
+            getters: true,
         },
         //prevents duplicate id's
         id: false
@@ -41,7 +42,7 @@ const userSchema = new Schema(
 // adds up number of friends
 userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
-});
+})
 
 const User = model('User', userSchema);
 
