@@ -4,6 +4,7 @@ const { get } = require('express/lib/response')
 const {
     getAllThoughts,
     createThought,
+    updateThought,
     removeThought
 } = require('../../controllers/thought-controller')
 
@@ -13,6 +14,7 @@ router
     .post(createThought)
 router
     .route('/:id')
+    .put(updateThought)
     .delete(removeThought)
 
 module.exports = router;
